@@ -1,0 +1,37 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
+<h:head>
+</h:head>
+<h:body>
+	<p:layout fullPage="true">
+		<p:layoutUnit position="north" size="100" header="Top" resizable="true" closable="true" collapsible="true">
+			<h:outputText value="顶部区域" />
+		</p:layoutUnit>
+
+		<p:layoutUnit position="south" size="100" header="Bottom" resizable="true" closable="true" collapsible="true">
+			<h:outputText value="底部区域" />
+		</p:layoutUnit>
+
+		<p:layoutUnit position="west" size="300" header="左部" collapsible="true" footer="左底" gutter="1" effect="drop">
+			<p:accordionPanel>
+				<p:tab title="菜单1">
+					<h:outputText value="菜单1测试" />
+				</p:tab>
+
+				<p:tab title="菜单2">
+					<h:outputText value="菜单2测试" />
+				</p:tab>
+
+				<p:tab title="菜单3">
+					<h:outputText value="菜单3测试" />
+				</p:tab>
+			</p:accordionPanel>
+		</p:layoutUnit>
+
+		<p:layoutUnit position="center" closable="true" collapsible="true" header="Contents">
+			<h:form>
+				<h:outputText value="布局组件Layout是一个高度可定制的边框布局模型，它可以很轻松地创建复杂的网页布局，即使不懂Web设计。  " />
+			</h:form>
+		</p:layoutUnit>
+	</p:layout>
+</h:body>
+</html>

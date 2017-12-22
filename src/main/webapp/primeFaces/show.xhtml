@@ -1,0 +1,78 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<script type="text/javascript">
+		function showDialog() {
+			PF('dlg1').show();
+		}
+
+		function selectOneMenuAjaxChangeOne() {
+			alert("one");
+		}
+
+		function selectOneMenuAjaxChangeTwo() {
+			alert("two");
+		}
+	</script>
+	<style type="text/css">
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none
+}
+
+li {
+	padding: 5px 0 0 10px;
+}
+</style>
+</h:head>
+<h:body>
+	<!-- 必须写在form里面 -->
+	<h:form>
+		<ul>
+			<li><p:editor value="hello p:editor" /></li>
+			<li><p:selectOneRadio id="name" value="#{user.name}">
+					<f:selectItem itemValue="wang2" itemLabel="王二"></f:selectItem>
+					<f:selectItem itemValue="zhang3" itemLabel="张三"></f:selectItem>
+					<f:selectItem itemValue="li4" itemLabel="李四"></f:selectItem>
+					<p:ajax event="change" listener="#{user.checkUser}" />
+				</p:selectOneRadio></li>
+			<li>
+				<!--"oncomplete"为提交到服务器端处理完返回到客户端时执行的动作，commandButton必须放在<h:from>中--> <p:commandButton value="p:commandButton" action="#{user.commandButton}" oncomplete="showDialog()" />
+			</li>
+			<li><p:button value="p:button" action="#{user.commandButton}" oncomplete="showDialog()" icon="ui-icon-star" /></li>
+			<li><p:inputText value="#{user.text}">
+					<f:ajax event="blur" listener="#{user.inputTextBlur}">
+					</f:ajax>
+				</p:inputText></li>
+			<li><h:panelGroup rendered="true">
+					<p:calendar value="#{user.date1}" showOn="button" />
+				</h:panelGroup></li>
+			<li><p:selectOneMenu>
+					<f:selectItem itemValue="1" itemLabel="p:selectOneMenu 1"></f:selectItem>
+					<f:selectItem itemValue="2" itemLabel="p:selectOneMenu 2"></f:selectItem>
+					<p:ajax event="change" oncomplete="selectOneMenuAjaxChangeOne();selectOneMenuAjaxChangeTwo();" />
+				</p:selectOneMenu></li>
+			<li><p:tree value="#{userTreeNode.root}" var="node" selection="#{userTreeNode.selectedNode}" style="width:350px;min-height: 180px;" selectionMode="single">
+					<p:treeNode>
+						<h:outputText value="#{node}" />
+					</p:treeNode>
+					<p:ajax event="select" listener="#{userTreeNode.selectTreeNode}" />
+				</p:tree></li>
+			<li><p:inputTextarea value="p:inputTextarea" style="width:500px;height:150px;" /></li>
+			<li><p:dataTable id="checkboxDT" var="userTemp" paginator="true" rows="20" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" paginatorPosition="bottom" currentPageReportTemplate="第{currentPage}页，共 {totalPage}页。" value="#{userDataTable.users}" selection="#{userDataTable.selectedUsers}" rowKey="#{userTemp.id}" style="margin-bottom:0;width:500px;">
+					<p:column selectionMode="multiple" style="width:16px;text-align:center" />
+					<p:column headerText="Id">
+						<h:outputText value="#{userTemp.id}" />
+					</p:column>
+					<p:column headerText="Name">
+						<h:outputText value="#{userTemp.name}" />
+					</p:column>
+				</p:dataTable></li>
+		</ul>
+	</h:form>
+	<p:dialog header="Basic Dialog" widgetVar="dlg1" minHeight="40">
+		<h:outputText value="Resistance to PrimeFaces is futile!" />
+	</p:dialog>
+
+</h:body>
+</html>
