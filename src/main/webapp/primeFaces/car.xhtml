@@ -1,0 +1,34 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
+<h:head></h:head>
+<h:body>
+	<p:dataTable var="carObj" value="#{carBean.cars}" paginator="true" rows="10" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}">
+		<f:facet name="header">
+			<h:outputText value="汽车品牌大全" />
+		</f:facet>
+		<p:column>
+			<f:facet name="header">
+				<h:outputText value="ID" />
+			</f:facet>
+			<h:outputText value="#{carObj.id}" />
+		</p:column>
+		<p:column>
+			<f:facet name="header">
+				<h:outputText value="品牌" />
+			</f:facet>
+			<h:outputText value="#{carObj.brand}" />
+		</p:column>
+		<p:column>
+			<f:facet name="header">
+				<h:outputText value="型号" />
+			</f:facet>
+			<h:outputText value="#{carObj.mode}" />
+		</p:column>
+		<p:column>
+			<f:facet name="header">
+				<h:outputText value="国家" />
+			</f:facet>
+			<h:outputText value="#{carObj.state}" />
+		</p:column>
+	</p:dataTable>
+</h:body>
+</html>

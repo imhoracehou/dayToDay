@@ -31,12 +31,14 @@
 				<button type="button" class="btn btn-default btn-block" onclick="pfShowUrl()">PrimeFaces Show</button>
 			</div>
 			<div class="col-md-2">
+				<button type="button" class="btn btn-default btn-block" onclick="dataTableUrl()">DataTable</button>
+			</div>
+			<div class="col-md-2">
 				<button type="button" class="btn btn-default btn-block" onclick="eventUrl()">Event</button>
 			</div>
 			<div class="col-md-2">
 				<button type="button" class="btn btn-default btn-block" onclick="springAjaxJsonUrl()">SpringMVC Ajax Json</button>
 			</div>
-			<div class="col-md-2">.col-md-3</div>
 		</div>
 		<div class="row">
 			<div class="col-md-4">.col-md-4</div>

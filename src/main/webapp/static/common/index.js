@@ -1,19 +1,23 @@
 function easyui() {
-	window.location.href = "horaceSSM/easyUI/show.do";
+	window.location.href = "easyUI/show.do";
 }
 
 function pfLayoutUrl() {
-	window.location.href = "horaceSSM/primeFaces/layout.xhtml";
+	window.location.href = "primeFaces/layout.xhtml";
+}
+
+function dataTableUrl() {
+	window.location.href = "primeFaces/car.xhtml";
 }
 
 function pfShowUrl() {
-	window.location.href = "horaceSSM/primeFaces/show.xhtml";
+	window.location.href = "primeFaces/show.xhtml";
 }
 
 function eventUrl() {
-	window.location.href = "horaceSSM/event/show.do";
+	window.location.href = "event/show.do";
 }
 
 function springAjaxJsonUrl() {
-	window.location.href = "horaceSSM/spring/ajaxJson.do";
+	window.location.href = "spring/ajaxJson.do";
 }
